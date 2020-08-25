@@ -126,11 +126,12 @@
 				<div id="label-container"></div>
 				<div class="image-title-wrap">
 					<!-- Go to www.addthis.com/dashboard to customize your tools -->
-					<div class="addthis_inline_share_toolbox"></div>
-
-					<button type="button" onclick="removeUpload()" class="remove-image">
-						Remove <span class="image-title">가른 사진으로 재시도</span>
+				<div class="addthis_inline_share_toolbox"></div>
+				<div class="pt-3 image-title-wrap">
+					<button type="button p-2" class="try-again-btn" onclick="window.location.reload();">
+						<span class="try-again-text">다른 사진으로 재시도</span>
 					</button>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -339,10 +340,9 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 
 					reader.onload = function (e) {
 						$('.image-upload-wrap').hide();
-
+						$('#loading').show();
 						$('.file-upload-image').attr('src', e.target.result);
 						$('.file-upload-content').show();
-
 						$('.image-title').html(input.files[0].name);
 					};
 
